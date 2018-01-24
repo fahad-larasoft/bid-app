@@ -13,3 +13,15 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
+
+
+mix.combine([
+    'resources/assets/css/bootstrap-datepicker.css',
+    'resources/assets/css/jquery.socialfeed.css'
+
+], 'public/css/all.css', 'resources/assets').version();
+
+mix.combine([
+    "resources/assets/js/bootstrap-datepicker.js",
+    "resources/assets/js/bootbox.min.js"
+], 'public/js/all.js', 'resources/assets').version();
