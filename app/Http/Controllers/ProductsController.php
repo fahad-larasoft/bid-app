@@ -114,6 +114,6 @@ class ProductsController extends Controller
 
         $biddingUsers = $biddingUsers->paginate(15);
 
-        return view('products.bidding', compact('product', 'biddingUsers', 'highest_bid_user'));
+        return view('seller.bids', compact('product', 'biddingUsers', 'highest_bid_user'));
     }
 }

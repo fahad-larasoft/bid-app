@@ -26,10 +26,11 @@ class HomeController extends Controller
     {
         if (auth()->user()->role == 'seller') {
             $products = auth()->user()->products()->paginate(15);
+            return view('seller.home', compact('products'));
+
         } else if (auth()->user()->role == 'buyer') {
             $products = Product::paginate(15);
+            return view('buyer.home', compact('products'));
         }
-
-        return view('home', compact('products'));
     }
 }

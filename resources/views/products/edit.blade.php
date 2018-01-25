@@ -1,12 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('_partials.alerts')
-    {!! Form::model($product, ['route' => ['products.update', $product->id], 'method' => 'put']) !!}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Edit Product</h4>
+        </div>
 
-    @include('products._form')
+        <div class="panel-body">
+            @include('_partials.alerts')
 
-    {!! Form::close() !!}
+            {!! Form::model($product, ['route' => ['products.update', $product->id], 'method' => 'put']) !!}
+
+            @include('products._form')
+
+            {!! Form::close() !!}
+        </div>
+    </div>
 @stop
 
 @section('js')

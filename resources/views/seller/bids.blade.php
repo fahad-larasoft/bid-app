@@ -27,7 +27,11 @@
                         <td>
                             {!! $biddingUser->pivot->bidding_amount !!}
                             @if ($highest_bid_user->id == $biddingUser->id)
-                                | <span class="label label-success">Highest Bid</span>
+                                @if ($product->is_expired)
+                                    | <span class="label label-success">Selected Bid</span>
+                                @else
+                                    | <span class="label label-warning">Highest Bid</span>
+                                @endif
                             @endif
                         </td>
                     </tr>
